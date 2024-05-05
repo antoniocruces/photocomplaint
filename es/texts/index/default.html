@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<!-- INDEX DEFAULT -->
+
+<!-- Main -->
+<main class="container">
+	<!-- Styles -->
+	<style>
+	blockquote {
+		padding: calc(var(--pico-spacing) * 0.5) var(--pico-spacing);
+	}
+	blockquote p {
+		margin-bottom: 0;
+	}
+	figure.right {
+		float: right;
+		margin: 0px 0 15px 15px;
+		width: 15vw;
+	}
+	@media only screen and (max-width: 1024px) { 
+		figure.right { 
+			display: none; 
+		}
+	}
+	figure.right img {
+		width: 100%;
+		transition: transform .7s ease-in-out;
+	}
+	figure.right img:hover {
+		transform: rotate(360deg);
+	}
+	figure.right figcaption {
+		font-size: 75%;
+		text-align: center;
+	}
+	nav[role=tab] a[role=tab] {
+		font-size: 120%;
+	}
+	ul.places li {
+		cursor: pointer;
+	}
+	.tools *:not(:last-child),
+	.share *:not(:last-child) {
+		margin-right: calc(var(--pico-spacing) * 0.5);
+	}
+	.tools input[type=text] {
+		margin-bottom: 0;
+	}
+	.partners {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: calc(var(--spacing-company) * 2);
+	}
+	.partners div {
+		height: 6em;
+		width: 6em;
+		text-align: center;
+	}
+	.partners div p {
+		text-align: center;
+		font-size: 80%;
+	}
+	.partners div a img,
+	.partners div a svg {
+		height: 7vh;
+	}
+	.centered {
+		text-align: center;
+	}
+	.location {
+		min-width: 30vw;
+	}
+	.locationcontainer {
+		position: relative;
+		width: 100%;
+	}
+	.locationresult {
+		position: absolute;
+		width: 100%;
+		z-index: 10;
+		background: var(--pico-background-color);
+		overflow-x: auto;
+	}
+	.places {
+		list-style: none inside;
+		margin: 0 auto;
+		max-width: 100%;
+		padding: 5px 10px 0;
+		text-align: left;
+		color: #777;
+	}
+	.places li {
+		padding: 0.5em 0;
+		border-bottom: 1px solid #eee;
+		list-style: none inside;
+		width: 100%;
+	}
+	
+	/* Steps */
+	.stepper-wrapper {
+		margin-top: auto;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 20px;
+	}
+	.stepper-item {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		flex: 1;
+		@media (max-width: 768px) {
+			font-size: 12px;
+		}
+	}
+	.stepper-item::before {
+		position: absolute;
+		content: "";
+		border-bottom: 2px solid #ccc;
+		width: 100%;
+		top: 20px;
+		left: -50%;
+		z-index: 2;
+	}
+	.stepper-item::after {
+		position: absolute;
+		content: "";
+		border-bottom: 2px solid #ccc;
+		width: 100%;
+		top: 20px;
+		left: 50%;
+		z-index: 2;
+	}
+	.stepper-item .step-counter {
+		position: relative;
+		z-index: 5;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: #ccc;
+		margin-bottom: 6px;
+	}
+	.stepper-item.active {
+		font-weight: bold;
+	}
+	.stepper-item.completed .step-counter {
+		background-color: #4bb543;
+	}
+	.stepper-item.completed::after {
+		position: absolute;
+		content: "";
+		border-bottom: 2px solid #4bb543;
+		width: 100%;
+		top: 20px;
+		left: 50%;
+		z-index: 3;
+	}
+	.stepper-item:first-child::before {
+		content: none;
+	}
+	.stepper-item:last-child::after {
+		content: none;
+	}
+	</style>
+	<!-- ./ Styles -->
+
+	<!-- Templates -->
+	<!-- ./ Templates -->
+
+	<div>
+		<p>
+			Si deseas saber más sobre el funcionamiento de <span class="brand">&#9960; Fotodenuncia</span>, consulta la <a href="help">ayuda</a>. Si prefieres simplemente enviar una denuncia, asegúrate de seguir las <a href="#" role="tab" data-tab="helpwrapper">instrucciones</a>. ¡Ah, y no olvides compartir esta página&hellip;!
+		</p>
+		<p class="share center margin-bottom-zero">
+			<a href="whatsapp://send?text=Fotodenuncia" data-action="share/whatsapp/share" data-tooltip="WhatsApp"><svg class="brand" style="height:1.5rem;width:1.5rem"><use href="#symwhatsapp"/></svg></a>
+			<a href="https://telegram.me/share/url?url=https://photocomplaint.iarthislab.eu&text=Fotodenuncia" data-tooltip="Telegram"><svg class="brand" style="height:1.5rem;width:1.5rem"><use href="#symtelegram"/></svg></a>
+			<a href="https://twitter.com/intent/post?url=https://photocomplaint.iarthislab.eu&text=Fotodenuncia" data-tooltip="Twitter-X"><svg class="brand" style="height:1.5rem;width:1.5rem"><use href="#symtwitterx"/></svg></a>
+			<a href="https://www.facebook.com/sharer/sharer.php?u=https://photocomplaint.iarthislab.eu" data-tooltip="Facebook"><svg class="brand" style="height:1.5rem;width:1.5rem"><use href="#symfacebook"/></svg></a>
+		</p>
+	</div>
+
+	<nav class="tab" role="tab">
+		<ul>
+			<li><a href="#" role="tab" data-tab="complaintwrapper" aria-current="true">denuncia</a></li>
+			<li><a href="#" role="tab" data-tab="helpwrapper">instrucciones</a></li>
+		</ul>
+	</nav>
+
+	<section>
+		<div id="complaintwrapper" class="complaintwrapper" role="tabpanel">
+			<form id="complaint" enctype="multipart/form-data" method="POST" target="/api" style="margin-top:0.75rem">
+				<input type="hidden" id="language" name="language" value="es">
+				<small class="muted tools margin-bottom-zero">
+					<span class="pico-color-red">&plus;</span>
+					<b>ubicación</b>
+					<span>&#8286;</span>
+					<span>doble click</span>
+					<b>activar</b>
+					<span>&#8286;</span>
+					<b id="scrolloff" class="pico-color-red">inactivo</b>
+					<b id="scrollon" class="pico-color-green" hidden>activo</b>
+				</small>
+				<div id="map"></div>
+				<label><span class="tools">
+					<span>ubicación del bien patrimonial</span>
+						<span>&#8286;</span>
+						<a href="#" id="relocate" class="relocate" data-tooltip="reposicionar">&#8984;</a>
+						<span>&#8286;</span>
+						<a href="#" id="clear" class="clear" data-tooltip="borrar">&#9003;</a>
+						<span>&#8286;</span>
+						<a href="#" id="search" class="search" data-tooltip="buscar">&#8680;</a>
+					</span>
+					<input type="text" id="location" name="location" class="field location mandatory" placeholder="dirección, ciudad, lugar geográfico..." disabled aria-invalid="true">
+					<small id="mapstatus">un momento&hellip;</small>
+				</label>
+				<div class="locationcontainer" hidden><div id="locationresult" class="locationresult"></div></div>
+				<label for="email">correo electrónico
+					<input type="email" name="email" id="email" class="field" aria-describedby="valid-helper" placeholder="correo.electronico@mail.com">
+					<small id="valid-helper"></small>
+				</label>
+				<label for="description">descripción
+					<textarea id="description" name="description" class="field mandatory" rows="6" placeholder="describe con claridad dónde está el bien patrimonial, qué daños presenta, etc.; si conoces el nombre del bien, inclúyelo; mientras más detalles figuren, más fácil será identificarlo y denunciar sus daños y riesgos" aria-invalid="true"></textarea>
+				</label>
+				<input type="hidden" id="coordinates" name="coordinates" class="field" value="0,0">
+				<input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+				<input type="file" id="files" name="files[]" class="field" multiple accept="image/png,image/jpeg">
+				<a href="#" id="send" name="send" class="send" role="button" disabled>enviar</a>
+				<label for="accept" class="inline" style="margin-left:1em">
+					<input type="checkbox" id="accept" name="accept" class="field mandatory" aria-invalid="true" />
+					acepto las <a href="#" data-content="conditions" data-title="condiciones" role="help">condiciones</a>
+				</label>
+			</form>
+		</div>
+		<div id="helpwrapper" class="helpwrapper" role="tabpanel" hidden>
+			<p>
+				Presentar una fotodenuncia es tan fácil como&hellip;
+			</p>
+			<div class="stepper-wrapper">
+				<div class="stepper-item" data-step="0">
+					<div class="step-counter">1</div>
+					<div class="step-name">captura</div>
+				</div>
+				<div class="stepper-item" data-step="1">
+					<div class="step-counter">2</div>
+					<div class="step-name">rellena</div>
+				</div>
+				<div class="stepper-item" data-step="2">
+					<div class="step-counter">3</div>
+					<div class="step-name">elige</div>
+				</div>
+				<div class="stepper-item" data-step="3">
+					<div class="step-counter">4</div>
+					<div class="step-name">envía</div>
+				</div>
+			</div>
+			<details class="step" data-step="0">
+				<summary><b>1</b>. Captura una o varias imágenes y guárdalas en el carrete de la cámara o del teléfono</summary>
+				<blockquote>
+					<p>
+						¡Que no se te escape nada! Procura que se vea claramente el bien patrimonial afectado y los posibles daños. Sé cuidadoso y minucioso; mientras más y mejor se vea el problema, más fácil será analizarlo para incluirlo en la lista y, si es correcta la información y las circunstancias, denunciarlo a las autoridades competentes.
+					</p>
+				</blockquote>
+			</details>
+			<details class="step" data-step="1">
+				<summary><b>2</b>. Rellena el formulario</summary>
+				<blockquote>
+					<p class="margin-bottom">
+						Autoriza al teléfono o al ordenador para que pueda utilizar la geolocalización y marcar la posición del bien patrimonial. Si no te gusta la idea &mdash;o no puedes hacerlo&mdash;, simplemente localízalo en el mapa y sitúalo en el centro, bajo la cruz roja [<span class="pico-color-red">&plus;</span>]. ¡Cuidado! La marca de centro se ve poco en según que tipo de teléfonos móviles, pero está en el centro mismo del mapa.
+					</p>
+					<p class="margin-bottom">
+						Escribe una descripción lo mejor que sepas o puedas. Todo detalle cuenta, por insignificante que parezca. Dinos por qué crees que el bien patrimonial se encuentra en peligro. No hace falta ningún conocimiento especial: solo míralo y cuéntanoslo; nosotros haremos el resto.
+					</p>
+					<p>
+						Si quieres que te mantengamos informado, pon tu correo electrónico. Si no lo haces (por razones de privacidad o cualquier otra causa) no pasa nada: verificaremos tus datos igualmente. <mark class="pico-background-red" style="margin-right:0.5rem">¡&#664;J&#664;!</mark> <span class="brand">&#9960; Fotodenuncia</span> no verifica si la dirección es real, sino solamente si es correcta sintácticamente; vamos, que si escribes una falsa o te equivocas nunca recibirás ninguna información en ella, así que se cuidadoso al escribirla.
+					</p>
+				</blockquote>
+			</details>
+			<details class="step" data-step="2">
+				<summary><b>3</b>. Selecciona las imágenes que vas a enviar</summary>
+				<blockquote>
+					<p class="margin-bottom">
+						Pulsa sobre el botón "Seleccionar archivo" y, si estás usando el ordenador, mantén pulsada mayúsculas (esta tecla &#8679;, no esta &#8682;) para marcar varios; si estás empleando el teléfono, marca el primer archivo y arrastra el dedo para seleccionar más: hay más de una manera, utiliza la correspondiente a tu tipo de teléfono (iOS o Android); funciona igual que cuando vas a seleccionar fotos en otras aplicaciones.
+					</p>
+					<p>
+						Procura que no sean demasiado grandes, o te costará mucho enviarlas. Hemos limitado el número máximo de archivos a 5, así que escoge bien lo que vas a mandar. Las fotos del móvil, en principio, sirven sin problema. No mandes vídeos (no los aceptará la aplicación).
+					</p>
+				</blockquote>
+			</details>
+			<details class="step" data-step="3">
+				<summary><b>4</b>. Pulsa enviar... ¡y listo!</summary>
+				<blockquote>
+					<p class="margin-bottom">
+						Ya está. Si todo ha salido bien, te mostraremos un mensaje en color <span class="pico-color-green">verde</span>, nada de cosas raras. Si algo ha fallado, un texto en color <span class="pico-color-red">rojo</span> te explicará dónde está el problema y qué debes hacer para tratar de solucionarlo, pero sin palabrería ni usar la jerga técnica esotérica: nos interesa mucho que mandes la información, y preferimos que a tí te resulte sencillo.
+					</p>
+					<p class="margin-bottom">
+						Si has puesto una dirección de correo electrónico, te mantendremos informado de nuestros progresos. Cuando envíes el informe y obtengas una respuesta verde (todo OK, vaya) incluiremos un identificador (<em>ticket</em>) compuesto de números y letras. Podrás usarlo si necesitaras comunicarte con nosotros desde la página de contacto, y así sabremos a qué te refieres.
+					</p>
+					<p>
+						¡Ah, y no te olvides de contárselo a otros! El patrimonio es de todos, y no nos merecemos que por la falta de vigilancia, el vandalismo o la carencia de escrúpulos se pierdan nuestras raíces y nuestra historia. Recuerda: <a href="whatsapp://send?text=Fotodenuncia" data-action="share/whatsapp/share">compártelo en WhatsApp</a>, <a href="https://telegram.me/share/url?url=https://photocomplaint.iarthislab.eu&text=Fotodenuncia">por Telegram</a> o como te dé la gana, pero difúndelo. De verdad, ¡vale la pena!
+					</p>
+				</blockquote>
+			</details>
+		</div>
+	</section>
+	
+	<div class="partners">
+		<div>
+			<a href="https://iarthislab.es" target="_blank" rel="external"><img src="/assets/images/logos/iArtHis_LAB-symbol-v0.svg"></a><p><small class="muted">iArtHis_LAB</small></p>
+		</div>
+		<div>
+			<a href="https://iasd.iarthislab.eu" target="_blank" rel="external"><img src="/assets/images/logos/iASD-symbol-v1.svg"></a><p><small class="muted">iASD</small></p>
+		</div>
+		<div>
+			<a href="https://www.uma.es" target="_blank" rel="external"><img src="/assets/images/logos/logo-uma.svg"></a><p><small class="muted">UMA</small></p>
+		</div>
+		<div>
+			<a href="https://transuma.iarthislab.eu/" target="_blank" rel="external"><img src="/assets/images/logos/logo_trans_UMA_cube.png"></a><p><small class="muted">TransUMA</small></p>
+		</div>
+	</div>
+</main>
+<!-- ./ Main -->
+
+<!-- Page script -->
+<script type="module" src="../assets/scripts/runners/run.index.js"></script>
+<!-- ./ Page script -->

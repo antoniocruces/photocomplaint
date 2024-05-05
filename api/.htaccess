@@ -1,0 +1,47 @@
+RewriteEngine On
+
+#RewriteCond %{REQUEST_METHOD} POST
+#RewriteRule ^ - [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+#Alternate default index pages
+DirectoryIndex index.htm index.html index.php
+
+<LimitExcept GET POST>
+	Order Allow,Deny
+	Deny from all
+</LimitExcept>
+
+##############################################
+# Compress / deflate
+# AllowOverride:
+# SetOutputFilter
+# SetEnvIf, SetEnvIfNoCase
+# BrowserMatch
+# Header
+##############################################
+# Insert filter
+SetOutputFilter DEFLATE
+
+# Netscape 4.x has some problems...
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+
+# Netscape 4.06-4.08 have some more problems
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+
+# MSIE masquerades as Netscape, but it is fine
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+
+# Don't compress because they are
+SetEnvIfNoCase Request_URI \.(?:gif|jp?g|png|ico|flv|swf|mp?g|avi|divx|mp?|ogg|wm?|mov|m4)$ no-gzip dont-vary
+SetEnvIfNoCase Request_URI \.(?:exe|zip|tar|tgz|tbz|gz|bz|bz2|bzip|rar|7z)$ no-gzip dont-vary
+SetEnvIfNoCase Request_URI \.pdf$ no-gzip dont-vary
+
+# Make sure proxies don't deliver the wrong content
+Header append Vary User-Agent env=!dont-vary
+
+# SetEnv no-gzip 1
+##############################################
+FileETag INode MTime Size

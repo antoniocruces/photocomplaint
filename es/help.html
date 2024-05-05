@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<!-- Meta tags -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Meta mobile tags -->
+	<meta name="apple-mobile-web-app-title" content="photocomplaint">
+	<meta name="application-name" content="photocomplaint">
+	<meta name="msapplication-TileColor" content="#9f00a7">
+	<meta name="msapplication-TileImage" content="../assets/images/favicons/mstile-144x144.png?v=0">
+	<meta name="msapplication-config" content="../assets/images/favicons/browserconfig.xml?v=0">
+	<meta name="theme-color" content="#ffffff">
+	
+	<!-- Title -->
+	<title>Fotodenuncia • iArtHis_LAB</title>
+	
+	<!-- Chrome, Firefox OS and Opera mobile address bar theming -->
+	<meta name="theme-color" content="#000000">
+	<!-- Windows Phone mobile address bar theming -->
+	<meta name="msapplication-navbutton-color" content="#000000">
+	<!-- iOS Safari mobile address bar theming -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+	
+	<!-- SEO -->
+	<meta name="description" content="PhotoComplaint is a tool to send reports on elements of historical, artistic and cultural heritage that may be in danger of damage or disappearance to the team of researchers of the Wounded Heritage project. PhotoComplaint has been developed by iASD, the technological branch of the iArtHis_LAB research group, from the Department of Art History of the University of Malaga (Spain).">
+	<meta name="author" content="iASD / iArtHis_LAB / Antonio Cruces Rodríguez">
+	<meta name="copyright" content="iASD. iArtHis_LAB. Universidad de Málaga. Antonio Cruces Rodríguez" />
+	<meta name="keywords" content="ariadna, digital art history, Universidad de Málaga, iASD, iArtHis_LAB, data analysis, knowledge discovery in databases, kdd">
+	
+	<!-- Open graph -->
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://photocomplaint.iarthislab.eu/">
+	<meta property="og:title" content="A tool to send reports on elements of historical, artistic and cultural heritage that may be in danger of damage or disappearance to the team of researchers of the Wounded Heritage project. PhotoComplaint has been developed by iASD, the technological branch of the iArtHis_LAB research group, from the Department of Art History of the University of Malaga (Spain)">
+	<meta property="og:description" content="PhotoComplaint is a tool to send reports on elements of historical, artistic and cultural heritage that may be in danger of damage or disappearance to the team of researchers of the Wounded Heritage project. PhotoComplaint has been developed by iASD, the technological branch of the iArtHis_LAB research group, from the Department of Art History of the University of Malaga (Spain).">
+	<meta property="og:image" content="https://photocomplaint.iarthislab.eu/assets/images/favicons/og-image.png">
+	<meta name="twitter:card" content="summary_large_image">
+	
+	<!-- FB & Twitter (to be revised) -->
+	<meta property="fb:app_id" content="2560228000973437">
+	<meta name="twitter:site" content="@iasdariadna">
+	
+	<!-- Favicon -->
+
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicons/apple-touch-icon.png?v=1">
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicons/favicon-32x32.png?v=1">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicons/favicon-16x16.png?v=1">
+	<link rel="manifest" href="../assets/images/favicons/site.webmanifest?v=1">
+	<link rel="mask-icon" href="../assets/images/favicons/safari-pinned-tab.svg?v=1" color="#7540bf">
+	<link rel="shortcut icon" href="../assets/images/favicons/favicon.ico?v=1">
+	<meta name="msapplication-TileColor" content="#7540bf">
+	<meta name="msapplication-config" content="../assets/images/favicons/browserconfig.xml?v=1">
+	<meta name="theme-color" content="#7540bf">
+			
+	<!-- JSON for Linking Data -->
+	<script type="application/ld+json">
+		{"@context":"http://www.schema.org","@type":"EducationalOrganization","name":"iArtHis_LAB Research Group","url":"https://iarthislab.es/","logo":"https://iarthislab.es/wp-content/uploads/2018/03/iarthis_logo_uma.png","image":"https://iarthislab.es/wp-content/uploads/2018/03/iarthis_logo_uma.png","description":"iArtHis_Lab is a research, innovation and training laboratory for the development of digital studies on artistic culture, and in particular for the progress and consolidation of the Digital Art History in Spain","address":{"@type":"PostalAddress","streetAddress":"Dpto. Historia del Arte Universidad de Málaga, Facultad de Filosofía y Letras, Campus de Teatinos, s/n","postOfficeBoxNumber":"29071","addressLocality":"Málaga","addressRegion":"Málaga","postalCode":"29071","addressCountry":"España"},"geo":{"@type":"GeoCoordinates","latitude":"36.7154799","longitude":"-4.4709432"},"hasMap":"https://www.google.com/maps/@36.7154799,-4.4709432,18.1z","openingHours":"Mo 09:00-20:00 Tu 09:00-20:00 We 09:00-20:00 Th 09:00-20:00 Fr 09:00-20:00"}
+	</script>
+
+	<!-- Preloads -->
+	<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.min.css" />
+	<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.colors.min.css" />
+	
+	<link rel="preload" as="style" href="../assets/styles/custom.css" />
+
+	<link rel="modulepreload" as="script" href="../assets/scripts/mod.app.js" type="text/javascript" crossorigin="anonymous" />
+	
+	<!-- Styles -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.colors.min.css" />
+	 
+	<link rel="stylesheet" href="../assets/styles/custom.css">
+</head>
+<body>
+	<html-include src="templates/misc/symbols"></html-include>
+	<html-include src="templates/misc/dialogs"></html-include>
+	<html-include src="templates/header/default"></html-include>
+	<html-include src="texts/help/default"></html-include>
+	<html-include src="templates/footer/default"></html-include>
+</body>
+<!-- App scripts start -->
+<script id="app-js" defer type="module" src="../assets/scripts/mod.app.js" crossorigin="anonymous"></script>
+<!-- App scripts end -->
+</html>

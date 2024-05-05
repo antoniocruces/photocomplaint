@@ -1,0 +1,109 @@
+##############################################
+# Caching
+##############################################
+<IfModule mod_headers.c> 	
+#	Header set Cache-Control "no-cache, no-store, must-revalidate" 	
+#	Header set Pragma "no-cache" 	
+#	Header set Expires 0 
+	Header set Cache-Control "private"
+
+#   Header set Content-Security-Policy "default-src 'self'"
+#   Header set X-XSS-Protection "1; mode=block"
+#   Header set X-Frame-Options "DENY"
+</IfModule> 
+
+##############################################
+# Force HTTPS
+##############################################
+<IfModule rewrite_module>
+	RewriteEngine On
+
+	RewriteCond %{HTTPS} off
+	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+##############################################
+# Language & HTML extension
+##############################################
+<IfModule rewrite_module>
+	RewriteEngine On
+
+	RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{3,4}
+	RewriteCond %{REQUEST_URI} !\.(html|css|js|less|jpg|jpeg|png|gif|md|mdn)$
+	RewriteCond %{REQUEST_URI} !/$
+	RewriteRule ^(.*)$ $1.html
+	
+	RewriteCond %{HTTP:Accept-Language} ^es [NC]
+	RewriteRule ^$ /es/ [L,R=301]
+	
+	# else redirect to the English version
+	RewriteRule ^$ /en/ [L,R=301]
+</IfModule>
+
+##############################################
+# Language and Charsets
+# AllowOverride:
+##############################################
+AddDefaultCharset UTF-8
+# AddCharset UTF-8 .txt .ascii .php .shtml .html .htm .css .js .htc
+AddCharset UTF-8 .txt .ascii .html .htm .css .js .json .htc .xml
+#DefaultLanguage de-DE
+#AddLanguage de-DE .txt .ascii .php .shtml .html .htm .css .js .htc
+
+# webp images mimetype support
+AddType image/webp .webp .WEBP
+AddType application/wasm wasm
+
+##############################################
+# Directory Options
+# AllowOverride:
+# DirectoryIndex, Options
+##############################################
+# Options +SymLinksIfOwnerMatch -ExecCGI -Indexes -Includes
+Options -ExecCGI -Indexes -Includes
+DirectoryIndex index.html
+
+##############################################
+# Compress / deflate
+# AllowOverride:
+# SetOutputFilter
+# SetEnvIf, SetEnvIfNoCase
+# BrowserMatch
+# Header
+##############################################
+# Insert filter
+SetOutputFilter DEFLATE
+
+# Netscape 4.x has some problems...
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+
+# Netscape 4.06-4.08 have some more problems
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+
+# MSIE masquerades as Netscape, but it is fine
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+
+# Don't compress because they are
+SetEnvIfNoCase Request_URI \.(?:gif|jp?g|png|ico|flv|swf|mp?g|avi|divx|mp?|ogg|wm?|mov|m4)$ no-gzip dont-vary
+SetEnvIfNoCase Request_URI \.(?:exe|zip|tar|tgz|tbz|gz|bz|bz2|bzip|rar|7z)$ no-gzip dont-vary
+SetEnvIfNoCase Request_URI \.pdf$ no-gzip dont-vary
+
+# Make sure proxies don't deliver the wrong content
+Header append Vary User-Agent env=!dont-vary
+
+##############################################
+FileETag INode MTime Size
+
+##############################################
+# Error Documents
+# AllowOverride:
+# ErrorDocument
+##############################################
+# ErrorDocument NNN /path/to/file or "Message
+
+# Client Request Errors
+ErrorDocument 400 /assets/errors/400.html
+ErrorDocument 401 /assets/errors/401.html
+ErrorDocument 403 /assets/errors/403.html
+ErrorDocument 404 /assets/errors/404.html
+ErrorDocument 500 /assets/errors/500.html

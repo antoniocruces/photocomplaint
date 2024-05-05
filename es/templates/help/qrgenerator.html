@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+
+<p>Puede usar la cámara del teléfono móvil, o cualquier otro dispositivo capaz de leer e interpretar el código para obtener la dirección URL mediante este <a href="https://es.wikipedia.org/wiki/C%C3%B3digo_QR" target="_blank" rel="external">código QR</a>.
+</p>
+
+<figure style="text-align:center">
+	<img id="qrcode" src="/assets/images/icons/gear-spinner.svg" style="height:200px;width:200px;min-height:200px" />
+</figure>
+
+<script>
+	byId('qrcode').src = `${opt.app.qrgenerator}${window.location.href}`;
+</script>
