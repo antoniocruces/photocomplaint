@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<!-- INDEX DEFAULT -->
+
+<!-- Main -->
+<main class="container">
+	<!-- Styles -->
+	<style>
+	blockquote {
+		padding: calc(var(--pico-spacing) * 0.5) var(--pico-spacing);
+	}
+	blockquote p {
+		margin-bottom: 0;
+	}
+	nav[role=tab] a[role=tab] {
+		font-size: 110%;
+	}
+	.tools:not(.grid) *:not(:last-child) {
+		margin-right: calc(var(--pico-spacing) * 0.5);
+	}
+	.tools input[type=text] {
+		margin-bottom: 0;
+	}
+	figure.right {
+		float: right;
+		margin: 0px 0 15px 15px;
+		width: 15vw;
+	}
+	@media only screen and (max-width: 1024px) { 
+		figure.right { 
+			display: none; 
+		}
+	}
+	figure.right img {
+		width: 100%;
+		transition: transform .7s ease-in-out;
+	}
+	figure.right img:hover {
+		transform: rotate(360deg);
+	}
+	figure.right figcaption {
+		font-size: 75%;
+		text-align: center;
+	}
+	.tools:not(.grid) *:not(:last-child) {
+		margin-right: calc(var(--pico-spacing) * 0.5);
+	}
+	.tools input[type=text] {
+		margin-bottom: 0;
+	}
+	.partners {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: calc(var(--spacing-company) * 2);
+	}
+	.partners div {
+		height: 6em;
+		width: 6em;
+		text-align: center;
+	}
+	.partners div p {
+		text-align: center;
+		font-size: 80%;
+	}
+	.partners div a img {
+		height: 7vh;
+	}
+	</style>
+	<!-- ./ Styles -->
+
+	<!-- Templates -->
+	<!-- ./ Templates -->
+
+	<nav class="tab" role="tab">
+		<ul>
+			<li><a href="#" role="tab" data-tab="howwrapper" aria-current="true">cómo</a></li>
+			<li><a href="#" role="tab" data-tab="whywrapper">por qué</a></li>
+			<li><a href="#" role="tab" data-tab="contactwrapper">contacto</a></li>
+			<li><a href="#" role="tab" data-tab="licenseswrapper">licencias</a></li>
+		</ul>
+	</nav>
+	
+	<section>
+		<div id="howwrapper" class="howwrapper" role="tabpanel" data-md="000">
+			espera mientras se carga el texto&hellip;
+		</div>
+		<div id="whywrapper" class="whywrapper" role="tabpanel" data-md="001" hidden>
+			espera mientras se carga el texto&hellip;
+		</div>
+		<div id="contactwrapper" class="contactwrapper" role="tabpanel" data-md="002" hidden>
+			espera mientras se carga el texto&hellip;
+		</div>
+		<div id="licenseswrapper" class="licenseswrapper" role="tabpanel" data-md="003" hidden>
+			espera mientras se carga el texto&hellip;
+		</div>
+	</section>
+	
+	<div class="partners" hidden>
+		<div>
+			<a href="https://iarthislab.es" target="_blank" rel="external"><img src="/assets/images/logos/iArtHis_LAB-symbol-v0.svg"></a><p><small class="muted">iArtHis_LAB</small></p>
+		</div>
+		<div>
+			<a href="https://iasd.iarthislab.eu" target="_blank" rel="external"><img src="/assets/images/logos/iASD-symbol-v1.svg"></a><p><small class="muted">iASD</small></p>
+		</div>
+		<div>
+			<a href="https://www.uma.es" target="_blank" rel="external"><img src="/assets/images/logos/logo-uma.svg"></a><p><small class="muted">UMA</small></p>
+		</div>
+		<div>
+			<a href="https://transuma.iarthislab.eu/" target="_blank" rel="external"><img src="/assets/images/logos/logo_trans_UMA_cube.png"></a><p><small class="muted">TransUMA</small></p>
+		</div>
+	</div>
+</main>
+<!-- ./ Main -->
+
+<!-- Page script -->
+<script type="module" src="../assets/scripts/runners/run.help.js"></script>
+<!-- ./ Page script -->

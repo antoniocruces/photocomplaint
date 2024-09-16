@@ -1,0 +1,40 @@
+{
+	"app": {
+		"author": {
+			"name": "iASD",
+			"url": "https://iasd.iarthislab.eu",
+			"email": "antonio.cruces@uma.es"
+		},
+		"brand": {
+			"color": {
+				"hex": "#017FC0"
+			},
+			"background": {
+				"hex": "#B7D9FC"
+			},
+			"class": "azure"
+		},
+		"date": "2024-05-31",
+		"debug": false,
+		"key": "photocomplaint",
+		"licenses": {
+			"code": {
+				"name": "MIT",
+				"url": "https://opensource.org/license/mit/"
+			},
+			"content": {
+				"name": "CC BY-NC-SA 4.0",
+				"url": "https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+			}
+		},
+		"logo": "⛨",
+		"name": "⛨ Fotodenuncia",
+		"pageoverlay": false,
+		"qrgenerator": "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=",
+		"version": [1, 0, 0]
+	},
+	
+	"paths": {
+		"api": "/api"
+	}
+}

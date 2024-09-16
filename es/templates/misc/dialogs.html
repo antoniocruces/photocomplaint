@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<!-- Modal -->
+<dialog id="dialog">
+	<article>
+		<h2 id="dialogtitle">[título]</h2>
+		<div id="dialogarticle"></div>
+		<footer>
+			<form method="dialog"><button class="copy outline" data-target="dialogarticle">copiar</button><button class="secondary" role="cancel">cancelar</button><button role="ok">aceptar</button></form>
+		</footer>
+	</article>
+</dialog>
+<!-- ./ Modal -->
+
+<!-- Overlay -->
+<dialog id="overlay" role="overlay">
+	<div>trabajando&hellip;</div>
+</dialog>
+<!-- ./ Overlay -->
+
+<!-- Message -->
+<dialog class="message">
+	<article>
+		<form method="dialog">
+			<div class="margin-bottom">
+				<p class="prompt"></p>
+				<input type="text" id="promptvalue" name="promptvalue" class="value">
+			</div>
+			<footer>
+				<button class="secondary" role="cancel" value="cancel">cancelar</button>
+				<button value="ok" role="ok">aceptar</button>
+			</footer>
+		</form>
+	</article>
+</dialog>
+<!-- ./ Message -->
